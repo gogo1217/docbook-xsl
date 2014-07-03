@@ -1,0 +1,76 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.smarttools.docbook</groupId>
+    <artifactId>docbook-xsl</artifactId>
+    <packaging>pom</packaging>
+    <version>0.0.1-SNAPSHOTS</version>
+    
+    <properties>
+        <encoding>UTF-8</encoding>
+        <docbook-xsl.version>1.78.1</docbook-xsl.version>
+        <xslthl.version>2.1.0</xslthl.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>net.sf.docbook</groupId>
+            <artifactId>docbook-xsl</artifactId>
+            <version>${docbook-xsl.version}</version>
+            <classifier>resources</classifier>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.xslthl</groupId>
+            <artifactId>xslthl</artifactId>
+            <version>${xslthl.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>unpack</id>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <artifactItems>
+                        <artifactItem>
+                            <groupId>net.sf.docbook</groupId>
+                            <artifactId>docbook-xsl</artifactId>
+                            <version>${docbook-xsl.version}</version>
+                            <classifier>resources</classifier>
+                            <type>zip</type>
+                        </artifactItem>
+                    </artifactItems>
+                    <overWrite>false</overWrite>
+                    <outputDirectory>target/depends</outputDirectory>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptors>
+                        <descriptor>src/main/assembly/assembly.xml</descriptor>
+                    </descriptors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
