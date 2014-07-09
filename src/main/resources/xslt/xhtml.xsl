@@ -15,9 +15,6 @@
 
   <xsl:include href="xhtml-common.xsl"/>
       
-    <!--文件输出编码-->
-    <xsl:param name="chunker.output.encoding" select="'UTF-8'"/>
-    <xsl:param name="chunker.output.indent" select="'yes'" /> 
     
     <!--导航图片-->
     <xsl:param name="navig.graphics" select="1" />  

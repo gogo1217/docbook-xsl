@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
    <!--====================================================​========================
    自定义页眉和页脚
-   modify by liushimin
+   modify by gogo1217
     ====================================================​=========================-->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 				xmlns:fo="http://www.w3.org/1999/XSL/Format"

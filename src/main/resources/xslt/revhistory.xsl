@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding="UTF-8" ?>
    <!--====================================================​========================
    修订历史记录样式表
-   modify by liushimin
+   modify by gogo1217
     ====================================================​=========================-->
 <xsl:stylesheet exclude-result-prefixes="db"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"

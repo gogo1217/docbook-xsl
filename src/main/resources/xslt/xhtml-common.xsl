@@ -22,7 +22,7 @@
   
   <xsl:param name="generate.legalnotice.link" select="1"/>
   <xsl:param name="generate.revhistory.link" select="0"/>
-  
+
   <!-- This is needed to generate the correct xhtml-strict DOCTYPE on the front page.
       We can't use indentation as the algorithm inserts linebreaks into the markup
       created for callouts. This means that callouts appear on different lines than
@@ -75,6 +75,8 @@
   <xsl:param name="html.cleanup" select="1"/>
   <xsl:param name="html.ext" select="'.html'"/>
 
+
+  <xsl:param name="use.simplified.author.group" select="1"/>
 
   <xsl:template match="authorgroup" mode="titlepage.mode">
    <xsl:choose>
@@ -371,11 +373,13 @@ Reason: Remove inline style for draft mode
 Version: 1.72.0
 -->
 <xsl:template name="head.content">
+	
 	<xsl:param name="node" select="."/>
 	<xsl:param name="title">
 		<xsl:apply-templates select="$node" mode="object.title.markup.textonly"/>
 	</xsl:param>
 
+    <meta http-equiv="Content-Type" content="text/html; charset={$chunker.output.encoding}" />
 	<title xmlns="http://www.w3.org/1999/xhtml" >
 		<xsl:copy-of select="$title"/>
 	</title>
@@ -428,6 +432,8 @@ Version: 1.72.0
 	</xsl:if>
 </xsl:template>
 
+
+<xsl:param name="confidential" select="1"/>
 <!--
 From: xhtml/docbook.xsl
 Reason: Add confidential to footer
